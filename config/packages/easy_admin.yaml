@@ -1,0 +1,27 @@
+easy_admin:
+    entities:
+        Post:
+            class: App\Entity\Post
+        User:
+            class: App\Entity\User
+            list:
+                actions: [{name: 'show'}]
+            show:
+                fields:
+                    - id
+                    - name
+                    - email
+                    - roles
+                    - posts
+                    - comments
+        Comment:
+            class: App\Entity\Comment
+        Image:
+            class: App\Entity\Image
+            list:
+                fields:
+                    - id
+                    - { property: 'url', type: 'image', label: 'Image' }
+            form:
+                fields:
+                    - { property: 'file', type: 'Vich\UploaderBundle\Form\Type\VichFileType' }
